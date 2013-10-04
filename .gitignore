@@ -2,6 +2,9 @@
 Thumbs.db
 
 # Ignore files build by Visual Studio
+*.classpath
+*.project
+*.cproject
 *.obj
 *.exe
 *.pdb
