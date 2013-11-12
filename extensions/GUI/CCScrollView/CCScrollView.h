@@ -56,6 +56,7 @@ public:
      * @lua NA
      */
     virtual void scrollViewDidZoom(ScrollView* view) = 0;
+    virtual void scrollViewScrollStopped(ScrollView* view){};
 };
 
 
@@ -231,6 +232,10 @@ public:
     virtual void addChild(Node * child, int zOrder) override;
     virtual void addChild(Node * child) override;
     void setTouchEnabled(bool e) override;
+    
+    // changed by Appimize DEV
+    void stopScrollerFromScrolling();
+    // change end
 
 protected:
     /**

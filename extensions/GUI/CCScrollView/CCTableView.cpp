@@ -76,7 +76,10 @@ TableView::TableView()
 , _tableViewDelegate(nullptr)
 , _oldDirection(Direction::NONE)
 {
-
+    // chnage by Appimize DEV
+    setIsSnapping(false);
+    _endMargin = 0;
+    // change END
 }
 
 TableView::~TableView()
@@ -276,7 +279,9 @@ void TableView::_updateContentSize()
     if (cellsCount > 0)
     {
         float maxPosition = _vCellsPositions[cellsCount];
-
+        // change by Appimize DEV
+        maxPosition += _endMargin;
+        // change end
         switch (this->getDirection())
         {
             case Direction::HORIZONTAL:

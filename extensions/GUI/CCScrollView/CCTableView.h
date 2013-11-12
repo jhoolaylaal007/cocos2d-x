@@ -85,6 +85,7 @@ public:
      */
     virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell){};
 
+    virtual void snappingFinished(TableView* table) {};
 };
 
 
@@ -305,6 +306,11 @@ protected:
     TableViewDelegate* _tableViewDelegate;
 
 	Direction _oldDirection;
+
+    // changed by Appimize DEV
+    CC_SYNTHESIZE(bool, _isSnapping, IsSnapping);
+    CC_SYNTHESIZE(float, _endMargin, EndMargin);
+    // change end
 
     int __indexFromOffset(Point offset);
     unsigned int _indexFromOffset(Point offset);

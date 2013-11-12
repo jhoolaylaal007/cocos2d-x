@@ -409,6 +409,12 @@ void ScrollView::deaccelerateScrolling(float dt)
     {
         this->unschedule(schedule_selector(ScrollView::deaccelerateScrolling));
         this->relocateContainer(true);
+        // changed by Appimize DEV
+        if(_delegate)
+        {
+            _delegate->scrollViewScrollStopped(this);
+        }
+        // change end
     }
 }
 
@@ -788,5 +794,9 @@ Rect ScrollView::getViewRect()
     }
 
     return Rect(screenPos.x, screenPos.y, _viewSize.width*scaleX, _viewSize.height*scaleY);
+}
+void ScrollView::stopScrollerFromScrolling()
+{
+    this->unschedule(schedule_selector(ScrollView::deaccelerateScrolling));
 }
 NS_CC_EXT_END
